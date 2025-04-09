@@ -1,0 +1,49 @@
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.pid.lock
+
+# Dependency directories
+node_modules/
+.pnpm/
+
+# Build output
+dist/
+build/
+lib/
+*.tsbuildinfo
+
+# TypeScript cache
+.rpt2_cache/
+.rts2_cache_*/
+
+# Environment variables
+.env
+.env.*  # e.g. .env.test, .env.local
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Editor/IDE folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Linter / bundler / test tool caches
+.cache/
+.eslintcache
+
+# Others
+*.tgz
+node_repl_history
+test-results/
