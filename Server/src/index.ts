@@ -18,9 +18,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 connectDB();
  
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
 
 app.listen(env?.PORT,() => {
   return console.log(`Express is listening at http://localhost:${env?.PORT}`);
