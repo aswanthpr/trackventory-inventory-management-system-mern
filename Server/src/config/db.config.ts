@@ -5,7 +5,7 @@ export  async function connectDB(){
     try {
         await mongoose.connect(env.MONGO_URL);
         console.log('Connected to mongodb 🚀')
-    } catch (error:unknown) {
+    } catch (error) {
         console.log('Mongo Error, ',error instanceof MongooseError?error.message:error);
     }
 }
