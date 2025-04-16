@@ -1,4 +1,5 @@
 export const HttpResponse = {
+  UNHANDLED_ERROR:"Unhandled error",
   SERVER_ERROR: 'Internal server error',
   USER_EXIST: 'User already exist',
   PAGE_NOT_FOUND: 'Route not found',
@@ -13,14 +14,22 @@ export const HttpResponse = {
   EMAIL_EXIST: 'Email already exist',
   INVALID_EMAIL: 'Invalid email address',
   UNEXPECTED_KEY_FOUND: 'Unexpected key found',
+  NOT_ENOUGH_QUANTITY:"Not enough quantity",
 
   TOKEN_EXPIRED: 'Token not valid or expired!',
   PASSWORD_CHANGE_SUCCESS: 'Password changed successfully!',
   UNAUTHORIZED: 'Unauthorized access!',
-  USERNAME_EXIST: 'Username Already Exist',
+  USER_FIELD_EXIST: 'Username Or mobile Already Exist',
   NO_PAYLOAD: 'Payload not found',
 
   SAME_USERNAME: 'Cannot change to old username',
   RESOURCE_FOUND: 'Resource found.',
   RESOURCE_UPDATED: 'Resource updated.',
+
+  INVENTORY_EXIST : "Inventory already exist",
+  PRODUCT_ADD:"Product added",
+  PRODUCT_EDIT:"Product edit success",
+  DELETE_SUCCESS:"Delete success",
+  FAILED:"Failed",
+  SUCCESS:"Success"
 };

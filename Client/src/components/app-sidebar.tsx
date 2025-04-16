@@ -1,5 +1,5 @@
 import {ChevronUpIcon, FileDownIcon, Inbox,User, User2 } from "lucide-react"
- 
+ import { useNavigate } from "react-router-dom"
   import {
     Sidebar,
     SidebarContent,
@@ -38,6 +38,13 @@ import {ChevronUpIcon, FileDownIcon, Inbox,User, User2 } from "lucide-react"
   ]
    
   export function AppSidebar() {
+    const navigate = useNavigate()
+    const handleSingout = ()=>{
+
+        localStorage.clear()
+        navigate("/login")
+  
+    }
     return (
       <Sidebar>
         <SidebarContent>
@@ -74,7 +81,7 @@ import {ChevronUpIcon, FileDownIcon, Inbox,User, User2 } from "lucide-react"
               <DropdownMenuContent side="top" className="w-[--radix-popper-anchor-width]">
                
                 <DropdownMenuItem>
-                  <span>Sign out</span>
+                  <span onClick={handleSingout}>Sign out</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

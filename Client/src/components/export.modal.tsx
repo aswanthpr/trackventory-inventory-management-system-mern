@@ -13,21 +13,59 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Printer, FileSpreadsheet, FileText, Mail } from "lucide-react"
+import { ICustomer } from "../pages/customer/CustomerMgt"
+import {
+  exportToExcel,
+  exportToPDF,
+  printData,
+  sendExportEmail,
+} from "../util/exportUtil" 
+import toast from "react-hot-toast"
 
-export function ExportModal({ isOpen, onClose, exportType, products }) {
+interface ExportModalProps {
+  isOpen: boolean
+  onClose: () => void
+  exportType: "print" | "excel" | "pdf" | "email"
+  products: Iinventory[] | ICustomer[] | ISales[]
+}
+
+export function ExportModal({
+  isOpen,
+  onClose,
+  exportType,
+  products,
+}: ExportModalProps) {
   const [email, setEmail] = useState("")
 
   useEffect(() => {
-    // Simulate export functionality
     if (isOpen) {
-      console.log(`Exporting ${products.length} products as ${exportType}`)
+      console.log(`Exporting ${products?.length} products as ${exportType}`)
     }
   }, [isOpen, exportType, products])
 
-  const handleExport = () => {
-    // In a real application, this would trigger the actual export
-    // For now, we'll just close the modal
-    onClose()
+  const handleExport = async () => {
+    try {
+      if (exportType === "print") {
+        printData(products)
+      } else if (exportType === "excel") {
+        exportToExcel(products, `${Date().toString().split("GMT")[0]}`)
+      } else if (exportType === "pdf") {
+        exportToPDF(products, `${Date().toString().split("GMT")[0]}`)
+      } else if (exportType === "email") {
+        if (!email) {
+          toast.custom("Please enter an email")
+          return
+        }
+        await sendExportEmail(email, products)
+    
+        setEmail("")
+      }
+
+      onClose()
+    } catch (error) {
+      console.error("Export error:", error)
+      alert("Failed to export data.")
+    }
   }
 
   const getExportIcon = () => {
@@ -43,7 +81,7 @@ export function ExportModal({ isOpen, onClose, exportType, products }) {
       default:
         return null
     }
-  }
+  } 
 
   const getExportTitle = () => {
     switch (exportType) {
@@ -96,7 +134,9 @@ export function ExportModal({ isOpen, onClose, exportType, products }) {
                 id="email"
                 type="email"
                 value={email}
-                onChange={(e:React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setEmail(e.target.value)
+                }
                 className="col-span-3"
                 placeholder="Enter recipient email"
                 required
@@ -111,7 +151,11 @@ export function ExportModal({ isOpen, onClose, exportType, products }) {
 
         <DialogFooter>
           <Button onClick={handleExport} className="bg-gray-900 text-white">
-            {exportType === "print" ? "Print" : exportType === "email" ? "Send" : "Download"}
+            {exportType === "print"
+              ? "Print"
+              : exportType === "email"
+              ? "Send"
+              : "Download"}
           </Button>
         </DialogFooter>
       </DialogContent>

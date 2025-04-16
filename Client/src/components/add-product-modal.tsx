@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import {
   Dialog,
   DialogContent,
@@ -13,38 +12,42 @@ import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Textarea } from "./ui/textarea"
+import { productSchema, ProductSchema } from "../validation/zodSchema"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
 
-export function AddProductModal({ isOpen, onClose, onSave }) {
-  const [formData, setFormData] = useState({
-    name: "",
-    price: "",
-    description: "",
-    quantity: "",
+export type Props = {
+  isOpen: boolean
+  onClose: () => void
+  onSave: (data: ProductSchema) => void
+  product?:Iinventory
+}
+
+export function AddProductModal({ isOpen, onClose, onSave }: Props) {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ProductSchema>({
+    resolver: zodResolver(productSchema),
+    defaultValues: {
+      name: "",
+      price: 0,
+      description: "",
+      quantity: 0,
+    },
   })
 
-  const handleChange = (e:React.ChangeEvent<HTMLInputElement| HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: name === "price" || name === "quantity" ? Number.parseFloat(value) || 0 : value,
-    }))
-  }
-
-  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    onSave(formData)
-    setFormData({
-      name: "",
-      price: "",
-      description: "",
-      quantity: "",
-    })
+  const onSubmit = (data: ProductSchema) => {
+    onSave(data)
+    reset()
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px] bg-gray-50">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
             <DialogTitle>Add New Product</DialogTitle>
             <DialogDescription>Enter the details for the new product.</DialogDescription>
@@ -54,58 +57,62 @@ export function AddProductModal({ isOpen, onClose, onSave }) {
               <Label htmlFor="name" className="text-right">
                 Name
               </Label>
-              <Input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="col-span-3"
-                required
-              />
+              <div className="col-span-3">
+                <Input
+                  id="name"
+                  {...register("name")}
+                  className="col-span-3"
+                //   required
+                />
+                {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+              </div>
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="price" className="text-right">
                 Price
               </Label>
-              <Input
-                id="price"
-                name="price"
-                type="number"
-                step="0.01"
-                min="0"
-                value={formData.price}
-                onChange={handleChange}
-                className="col-span-3"
-                required
-              />
+              <div className="col-span-3">
+                <Input
+                  id="price"
+                  type="number"
+                  step="1"
+                  min="0"
+                  {...register("price", { valueAsNumber: true })}
+                  className="col-span-3"
+                //   required
+                />
+                {errors.price && <p className="text-red-500 text-sm">{errors.price.message}</p>}
+              </div>
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="description" className="text-right">
                 Description
               </Label>
-              <Textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                className="col-span-3"
-                required
-              />
+              <div className="col-span-3">
+                <Textarea
+                  id="description"
+                  {...register("description")}
+                  className="col-span-3"
+                //   required
+                />
+                {errors.description && <p className="text-red-500 text-sm">{errors.description.message}</p>}
+              </div>
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="quantity" className="text-right">
                 Quantity
               </Label>
-              <Input
-                id="quantity"
-                name="quantity"
-                type="number"
-                min="0"
-                value={formData.quantity}
-                onChange={handleChange}
-                className="col-span-3"
-                required
-              />
+              <div className="col-span-3">
+                <Input
+                  id="quantity"
+                  type="number"
+                  min="0"
+                  {...register("quantity", { valueAsNumber: true })}
+                  className="col-span-3"
+                //   required
+                />
+                {errors.quantity && <p className="text-red-500 text-sm">{errors.quantity.message}</p>}
+              </div>
             </div>
           </div>
           <DialogFooter>

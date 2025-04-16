@@ -7,5 +7,11 @@ export const env  ={
     },
     get CLIENT_ORIGIN(){
         return process.env.CLIENT_ORIGIN as string;
+    },
+    get  EMAIL(){
+        return process?.env?.USER_EMAIL
+    },
+    get PASSWORD(){
+        return process?.env?.USER_PASS
     }
 }

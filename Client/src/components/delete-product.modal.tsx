@@ -10,8 +10,13 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "./ui/alert-dialog"
-
-export function DeleteProductModal({ isOpen, onClose, onConfirm, product }) {
+interface DeleteProductModalProps {
+  isOpen: boolean; 
+  onClose: () => void; 
+  onConfirm: () => void;
+  product: string | null;
+}
+export function DeleteProductModal({ isOpen, onClose, onConfirm, product }:DeleteProductModalProps) {
   if (!product) return null
 
   return (
@@ -20,7 +25,7 @@ export function DeleteProductModal({ isOpen, onClose, onConfirm, product }) {
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This will permanently delete the product &quot;{product.name}&quot;. This action cannot be undone.
+            This will permanently delete the  &quot;{product}&quot;. This action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
