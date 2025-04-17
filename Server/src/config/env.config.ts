@@ -1,3 +1,4 @@
+
 export const env  ={
     get PORT(){
         return process.env.PORT as string;
@@ -9,9 +10,9 @@ export const env  ={
         return process.env.CLIENT_ORIGIN as string;
     },
     get  EMAIL(){
-        return process?.env?.USER_EMAIL
+        return process.env?.USER_EMAIL
     },
     get PASSWORD(){
-        return process?.env?.USER_PASS
+        return process.env?.USER_PASS
     }
 }
