@@ -48,7 +48,11 @@ export function CustomerModal({
 
   useEffect(() => {
     if (customer && mode === "edit") {
-      reset(customer as unknown as {name:string,address:string,mobile:string} );
+      reset({
+        name: customer.name,
+        address: customer.address,
+        mobile: customer.mobile.toString(),
+      });
     } else {
       reset({
         name: "",
