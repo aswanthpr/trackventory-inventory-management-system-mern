@@ -14,6 +14,7 @@
     "removeComments": true,
     "types": ["node"],
     "declaration": true,
+    "typeRoots": ["./node_modules/@types"],
 
     "paths": {
       "@src/*": ["src/*"] // absolute paths
