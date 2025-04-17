@@ -1,7 +1,7 @@
-import {HttpStatus} from '@src/constants/httpStatus';
-import customer from '@src/model/CustomerModel';
-import Inventory from '@src/model/inventoryModel';
-import Sales from '@src/model/salesModel';
+import { HttpStatus } from '../constants/httpStatus';
+import customer from '../model/CustomerModel';
+import Inventory from '../model/inventoryModel';
+import Sales from '../model/salesModel';
 import {NextFunction, Request, Response} from 'express';
 
 

@@ -1,8 +1,8 @@
-import { HttpStatus } from "@src/constants/httpStatus";
-import { HttpResponse } from "@src/constants/responseMsg";
-import customer from "@src/model/CustomerModel";
-import Sales from "@src/model/salesModel";
-import { createHttpError } from "@src/utils/http-error.util";
+import { HttpStatus } from "../constants/httpStatus";
+import { HttpResponse } from "../constants/responseMsg";
+import customer from "../model/CustomerModel";
+import Sales from "./../model/salesModel";
+import { createHttpError } from "./../utils/http-error.util";
 import {Request,Response, NextFunction } from "express";
 
 

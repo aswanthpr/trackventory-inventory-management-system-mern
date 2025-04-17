@@ -1,7 +1,8 @@
-import { nodeMailer } from "@src/config/nodemailer";
-import { HttpStatus } from "@src/constants/httpStatus";
-import { HttpResponse } from "@src/constants/responseMsg";
+
 import { Request, Response, NextFunction } from "express";
+import { nodeMailer } from "../config/nodemailer";
+import { HttpStatus } from "../constants/httpStatus";
+import { HttpResponse } from "../constants/responseMsg";
 
 
 export const sendMail = async (

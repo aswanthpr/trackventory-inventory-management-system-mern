@@ -16,9 +16,9 @@
     "declaration": true,
     "typeRoots": ["./node_modules/@types"],
 
-    "paths": {
-      "@src/*": ["src/*"],
-    },
+    // "paths": {
+    //   "@src/*": ["src/*"],
+    // },
 
     "strictNullChecks": true, // Enable strict null checks
     "strictFunctionTypes": true, // Enable strict checking of function types

@@ -1,5 +1,5 @@
 import mongoose, { MongooseError } from "mongoose";
-import {env} from "@src/config/env.config";
+import env from "./env.config"; 
 
 export  async function connectDB(){
     try {

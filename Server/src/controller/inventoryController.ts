@@ -1,8 +1,8 @@
-import {HttpStatus} from '@src/constants/httpStatus';
-import {HttpResponse} from '@src/constants/responseMsg';
-import Inventory from '@src/model/inventoryModel';
-import {createHttpError} from '@src/utils/http-error.util';
+import { HttpStatus } from '../constants/httpStatus';
+import Inventory from '../model/inventoryModel';
 import  {NextFunction, Request, Response} from 'express';
+import { createHttpError } from '../utils/http-error.util';
+import { HttpResponse } from '../constants/responseMsg';
 
 export const addProduct = async (
   req: Request,

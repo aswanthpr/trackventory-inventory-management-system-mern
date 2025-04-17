@@ -1,9 +1,10 @@
-import { userLogin } from "@src/controller/authentication";
-import { createCustomer, customCustomer, deleteCustomer, editCustomer, fetchCustomers } from "@src/controller/customerController";
-import { sendMail } from "@src/controller/exportController";
-import { addProduct, deleteProduct, editProduct, fetchInventory } from "@src/controller/inventoryController";
-import { createSales, getSalesPageData } from "@src/controller/SalesController";
+import { userLogin } from "../controller/authentication"; 
+import { createCustomer, customCustomer, deleteCustomer, editCustomer, fetchCustomers } from "../controller/customerController";
+import { sendMail } from "../controller/exportController";
+import { addProduct, deleteProduct, editProduct, fetchInventory } from "../controller/inventoryController";
+
 import express ,{Router} from "express";
+import { getSalesPageData,createSales } from "../controller/SalesController";
 const router:Router  = express.Router();
 
 router.post("/login",userLogin);
