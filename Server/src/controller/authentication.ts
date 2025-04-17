@@ -2,7 +2,7 @@ import {env} from '@src/config/env.config';
 import {HttpStatus} from '@src/constants/httpStatus';
 import {HttpResponse} from '@src/constants/responseMsg';
 import {createHttpError} from '@src/utils/http-error.util';
-import express, {NextFunction, Request, Response, urlencoded} from 'express';
+import {NextFunction, Request, Response, urlencoded} from 'express';
 
 export const userLogin = async (
   req: Request,

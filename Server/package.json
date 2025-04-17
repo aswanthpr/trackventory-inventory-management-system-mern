@@ -14,7 +14,7 @@
     "posttest": "pnpm run lint",
     "start": "dist/index.js",
     "dev": "nodemon",
-    "build":"tsc"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +25,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^22.7.5",
+    "@types/node": "^22.14.0",
     "@types/nodemailer": "^6.4.17",
     "gts": "^6.0.2",
     "ts-node": "^10.9.2",

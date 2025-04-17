@@ -2,7 +2,7 @@ import { nodeMailer } from "@src/config/nodemailer";
 import { HttpStatus } from "@src/constants/httpStatus";
 import { HttpResponse } from "@src/constants/responseMsg";
 import { Request, Response, NextFunction } from "express";
-import nodemailer from "nodemailer";
+
 
 export const sendMail = async (
   req: Request,

@@ -2,7 +2,7 @@ import {HttpStatus} from '@src/constants/httpStatus';
 import {HttpResponse} from '@src/constants/responseMsg';
 import Inventory from '@src/model/inventoryModel';
 import {createHttpError} from '@src/utils/http-error.util';
-import express, {NextFunction, Request, Response, urlencoded} from 'express';
+import  {NextFunction, Request, Response} from 'express';
 
 export const addProduct = async (
   req: Request,
