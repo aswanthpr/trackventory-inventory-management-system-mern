@@ -9,3 +9,5 @@ export  async function connectDB(){
         console.log('Mongo Error, ',error instanceof MongooseError?error.message:error);
     }
 }
+
+export { env };

@@ -1,5 +1,5 @@
 
-export const env  ={
+ const env  ={
     get PORT(){
         return process.env.PORT as string;
     },
@@ -16,3 +16,4 @@ export const env  ={
         return process.env?.USER_PASS
     }
 }
+export default env

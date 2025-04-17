@@ -2,7 +2,7 @@ import express ,{Application}  from 'express';
 import dotenv from 'dotenv';
 dotenv.config()
 import cors from 'cors';
-import { env } from './config/env.config';
+import {env} from "@src/config/db.config"
 
 import { connectDB } from './config/db.config';
 import morgan from 
