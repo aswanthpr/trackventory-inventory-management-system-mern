@@ -12,7 +12,7 @@
    "moduleResolution": "node", // Choose a module resolution strategy
     "resolveJsonModule": true,
     "removeComments": true,
-    "types": ["node"],
+    // "types": ["node"],
     "declaration": true,
     "typeRoots": ["./node_modules/@types"],
 
