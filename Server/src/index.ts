@@ -1,8 +1,9 @@
 import express ,{Application}  from 'express';
-import dotevn  from 'dotenv';
+import dotenv from 'dotenv';
+dotenv.config()
 import cors from 'cors';
 import { env } from './config/env.config';
-dotevn.config();
+
 import { connectDB } from './config/db.config';
 import morgan from 
 'morgan';

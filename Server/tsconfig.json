@@ -9,7 +9,7 @@
     "rootDir": "src", // Specify the root directory of source files
     "skipLibCheck": true, // Skip type checking of all declaration files (*.d.ts)
     "esModuleInterop": true, // Enables compatibility with default imports from modules
-    "moduleResolution": "node", // Choose a module resolution strategy
+   "moduleResolution": "node", // Choose a module resolution strategy
     "resolveJsonModule": true,
     "removeComments": true,
     "types": ["node"],
