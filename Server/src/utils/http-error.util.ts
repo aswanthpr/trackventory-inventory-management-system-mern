@@ -1,15 +1,17 @@
+
+
 export class HttpError extends Error {
   statusCode: number;
 
   constructor(statusCode: number, message: string) {
     super(message);
     this.statusCode = statusCode;
-    this.name = new.target.name;
+    this.name = new.target?.name;
 
-    Object.setPrototypeOf(this, new.target.prototype);
+    Object?.setPrototypeOf(this, new.target.prototype);
 
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, this.constructor);
+    if ((Error as any)?.captureStackTrace) {
+      (Error as any)?.captureStackTrace(this, this.constructor);
     }
   }
 }
