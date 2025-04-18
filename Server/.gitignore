@@ -38,7 +38,7 @@ coverage/
 *.ntvs*
 *.njsproj
 *.sln
-
+.env
 # Linter / bundler / test tool caches
 .cache/
 .eslintcache
