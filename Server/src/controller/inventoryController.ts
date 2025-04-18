@@ -11,7 +11,7 @@ export const addProduct = async (
 ): Promise<void> => {
   try {
     const {name, description, price, quantity} = req.body;
-    console.log(name,description,price,quantity,'hai hai ahi ')
+
     if (!name || !description || !price || !quantity) {
       throw createHttpError(
         HttpStatus?.BAD_REQUEST,
