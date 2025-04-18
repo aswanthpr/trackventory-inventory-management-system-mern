@@ -22,17 +22,17 @@ import {ChevronUpIcon, FileDownIcon, Inbox,User, User2 } from "lucide-react"
   const items = [
     {
         title: " Inventory",
-        url: "http://localhost:5173/",
+        url: "/",
         icon:<Inbox/>,
       },
     {
       title: "Customer",
-      url: "http://localhost:5173/customer-mgt",
+      url: "/customer-mgt",
       icon:<User/>,
     },
     {
       title: "Sales",
-      url:"http://localhost:5173/sales-mgt",
+      url:"/sales-mgt",
       icon:<FileDownIcon/> ,
     },
   ]

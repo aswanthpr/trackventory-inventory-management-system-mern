@@ -9,6 +9,9 @@
     get CLIENT_ORIGIN(){
         return process.env.CLIENT_ORIGIN as string;
     },
+    get SERVER_URL(){
+        return process.env.SERVER_URL as string;
+    },
     get  EMAIL(){
         return process.env?.USER_EMAIL
     },

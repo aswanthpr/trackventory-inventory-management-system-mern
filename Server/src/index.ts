@@ -31,7 +31,7 @@ app.use("/",router);
 
 
 app.listen(env?.PORT,() => { 
-  console.log('\x1b[35m%s\x1b[0m',`Express is listening at http://localhost:${env?.PORT}`) 
+  console.log('\x1b[35m%s\x1b[0m',`Express is listening at ${env.SERVER_URL}${env?.PORT}`) 
   return ;
 });
    

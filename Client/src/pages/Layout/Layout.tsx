@@ -14,5 +14,3 @@ export  function Layout() {
     </SidebarProvider>
   )
 }
-
-// { children }: { children: React.ReactNode }
