@@ -32,10 +32,9 @@ const navigate  = useNavigate()
   })
 
   const onSubmit = useCallback(async(data: LoginSchema) => {
-    console.log("Login Data:", data)
   
     const response =  await postLogin(data);
-    console.log(response)
+
     if( response?.data&&response.status == 200 ){
       toast.success("Logged in successfully");
       localStorage.setItem("login",response?.data?.encode);
@@ -58,6 +57,7 @@ const navigate  = useNavigate()
               <div className="grid gap-3">
                 <Label htmlFor="email">Email</Label>
                 <Input
+                value={"trackventory@gmail.com"}
                   id="email"
                   {...register("email")}
                   type="email"
@@ -74,6 +74,7 @@ const navigate  = useNavigate()
                   <Label htmlFor="password">Password</Label>
                 </div>
                 <Input
+                value={"123@qwe"}
                   id="password"
                   {...register("password")}
                   type="password"

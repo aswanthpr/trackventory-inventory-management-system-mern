@@ -163,7 +163,7 @@ setLoading(false);
   const handleSave = async(data:ISales) => {
 
    const response = await postAddSales(data)
-   console.log(response);
+
    if(response?.data && response?.data.success){
     setSales([response?.data?.sales,...sales])
     toast.success(response?.data?.message)

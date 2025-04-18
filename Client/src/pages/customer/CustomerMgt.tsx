@@ -171,7 +171,7 @@ export default function CustomerPage() {
   const handleSave = async(customer: ICustomer) => {
  
     if (modalMode === "edit" && selectedCustomer) {
-      console.log(customer,'this si customer')
+    
       const response = await postEditCustomer(customer);
       if(response?.data && response?.data?.success){
       setCustomers((prev) =>
@@ -198,7 +198,7 @@ export default function CustomerPage() {
     const data = (response?.data?.customers as Icustom[])?.map(({_id,updatedAt,createdAt,__v,...rest})=>rest)
 
     setCustomCus(data as ISales[])
-    console.log(response,'haii')
+  
   };
 const handleAddModalOpen = ()=>{
     setModalMode("add");

@@ -222,7 +222,7 @@ export default function InventoryPage() {
   const handleEditSave = useCallback(
     async (editedProduct: Iinventory) => {
       const response = await serviceEditProduct(editedProduct);
-      console.log(response, "resposner");
+     
       if (response?.data && response?.data?.success) {
         setProducts(
           products.map((product) =>
