@@ -14,12 +14,13 @@ import router from "./routes/routes";
 const app:Application = express();
 
 app.use(cors({
-  origin: env.CLIENT_ORIGIN,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  origin: env.CLIENT_ORIGIN as string,
+  methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"],
   optionsSuccessStatus: 204,
 }));
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser())
